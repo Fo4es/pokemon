@@ -1,31 +1,25 @@
 
-import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
-import {pokemonActions} from "../../redux";
+import {picture} from "../../constants";
+import {Link} from "react-router-dom";
 
 
-
-export default function Pokemon({pokemon}){
-      const {name,url} =pokemon;
-
-      const {pokemons} = useSelector(state => state.pokemon );
+export default function Pokemon({pokemons}){
+      const {name,url} =pokemons;
 
 
 
 
-    const dispatch = useDispatch();
 
-    useEffect(()=>{
-        dispatch(pokemonActions.getOne({name:name}))
-    },[])
+
+    const id = url.slice(34).replace("/","");
 
     return(
+        <Link to ={`/Pokemons/${name}`} state={pokemons}>
         <div>
-
-            <div>{name}</div>
-
-
+            {name}
+            <img alt={`picture`} src={picture+id+`.png`}/>
         </div>
+        </Link>
     );
 }
 
@@ -33,9 +27,10 @@ export default function Pokemon({pokemon}){
 
 
 
-{/*{abilities && abilities.map(one=><Picture key={one.id} one={one}/>)}*/}
-//const id = url.slice(34).replace("/","");
 
+
+
+//     console.log(abilities);
 // const {abilities} = one;
 
-{/*<img alt={`picture`} src={picture+id+`.png`}/>*/}
+

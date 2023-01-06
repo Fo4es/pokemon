@@ -1,3 +1,6 @@
 export * from './Pokemons/Pokemons';
 export * from './Pokemon/Pokemon';
-export * from './Picture/Picture'
+export * from './PokemonInfo/PokemonInfo'
+export * from './Stats'
+export * from './Types'
+export * from './FormsInfo/FormsInfo'

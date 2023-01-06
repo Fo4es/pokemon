@@ -3,14 +3,17 @@ import {pokemonServices} from "../../services";
 
 const initialState = {
     pokemons:[],
-    pokemon:null
+    pokemon: [],
+    forms:[],
+    next: null,
+    prev: null
 
 }
 const getAll = createAsyncThunk(
     'pokemonSlice/getAll',
-    async ()=>{
+    async ({offset})=>{
 
-      const {data} = await  pokemonServices.getAll();
+      const {data} = await  pokemonServices.getAll(offset);
       return data
     }
 );
@@ -20,6 +23,15 @@ const getOne = createAsyncThunk(
     async ({name})=>{
 
         const {data} = await pokemonServices.getOne(name);
+        return data
+    }
+);
+
+const getForms = createAsyncThunk(
+    'pokemonSlice/getForms',
+    async ({name})=>{
+
+        const {data} = await pokemonServices.getForms(name);
         return data
     }
 );
@@ -40,13 +52,17 @@ const pokemonSlice = createSlice({
             .addCase(getOne.fulfilled,(state, action) => {
                 state.pokemon = action.payload
             })
+            .addCase(getForms.fulfilled,(state, action) => {
+                state.forms = action.payload
+            })
 });
 
 const {reducer:pokemonReducer} = pokemonSlice;
 
 const pokemonActions={
     getAll,
-    getOne
+    getOne,
+    getForms
 }
 
 export {

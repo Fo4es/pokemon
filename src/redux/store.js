@@ -1,9 +1,11 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import {pokemonReducer} from "./slices";
+import {pokemonReducer,} from "./slices";
 
 
 const rootReducer = combineReducers({
-    pokemons:pokemonReducer
+    pokemons:pokemonReducer,
+    pokemon:pokemonReducer,
+    forms:pokemonReducer
 });
 
 const setupStore = ()=> configureStore({
