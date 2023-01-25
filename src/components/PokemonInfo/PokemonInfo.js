@@ -1,23 +1,19 @@
-import Forms from "../Forms";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {useLocation} from "react-router-dom";
 import {pokemonActions} from "../../redux";
+import {useParams} from "react-router-dom";
+
+import Forms from "../Forms";
 import Abilites from "../Abilites";
 import Stats from "../Stats";
 import Types from "../Types";
 import {picture} from "../../constants";
 
-export default function PokemonInfo({poke}){
+export default function PokemonInfo(){
 
-    const {name} = poke;
-
-
+    const {name} = useParams();
     const {pokemon} = useSelector(state => state.pokemon);
-    const {forms,abilities,stats,types,sprites,id} = pokemon;
-
-
-
+    const {forms,abilities,stats,types,id} = pokemon;
 
     const dispatch = useDispatch();
 
@@ -31,7 +27,6 @@ export default function PokemonInfo({poke}){
             <img alt={`picture`} src={picture+id+`.png`}/>
             <br/>
             {name}
-
             <div>Ability:</div>
             {abilities&&abilities.map(ability=><Abilites abilites={ability}/>)}
             <div>Stats:</div>

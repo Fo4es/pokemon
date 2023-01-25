@@ -1,9 +1,6 @@
 export default function Abilites({abilites}){
 
-
-
-    const {ability,is_hidden,slot} = abilites;
-
+    const {ability} = abilites;
 
     return(
         <div>

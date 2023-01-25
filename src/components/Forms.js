@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 
 export default function Forms({forms}){
+
    const {name} = forms;
 
     return(

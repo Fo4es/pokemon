@@ -6,7 +6,12 @@ const initialState = {
     pokemon: [],
     forms:[],
     next: null,
-    prev: null
+    prev: null,
+    search:[],
+    ability:[],
+    type:[],
+    allAbility:[],
+    allType:[]
 
 }
 const getAll = createAsyncThunk(
@@ -36,6 +41,46 @@ const getForms = createAsyncThunk(
     }
 );
 
+const getSearchPokemon = createAsyncThunk(
+    'pokemonSlice/getSearch',
+             async({offset,limit}) =>{
+                 const {data} = await pokemonServices.getAll(offset,limit)
+                 return data
+             }
+);
+
+const getAbility  = createAsyncThunk(
+    'pokemonSlice/getAbility',
+    async({name}) =>{
+        const {data} = await pokemonServices.getAbility(name)
+        return data
+    }
+);
+
+const getAllAbility = createAsyncThunk(
+    'pokemonSlice/getAllAbility',
+    async({offset,limit}) =>{
+        const {data} = await pokemonServices.getAllAbility(offset,limit)
+        return data
+    }
+);
+
+const getType  = createAsyncThunk(
+    'pokemonSlice/getType',
+    async({name}) =>{
+        const {data} = await pokemonServices.getType(name)
+        return data
+    }
+);
+
+const getAllType = createAsyncThunk(
+    'pokemonSlice/getAllType',
+    async({offset,limit}) =>{
+        const {data} = await pokemonServices.getAllType(offset,limit)
+        return data
+    }
+);
+
 
 
 const pokemonSlice = createSlice({
@@ -55,6 +100,21 @@ const pokemonSlice = createSlice({
             .addCase(getForms.fulfilled,(state, action) => {
                 state.forms = action.payload
             })
+            .addCase(getSearchPokemon.fulfilled, (state, action) => {
+                state.search = action.payload
+            })
+            .addCase(getAbility.fulfilled, (state, action) => {
+                state.ability = action.payload
+            })
+            .addCase(getType.fulfilled, (state, action) => {
+                state.type = action.payload
+            })
+            .addCase(getAllAbility.fulfilled,(state, action) => {
+                state.allAbility = action.payload
+            })
+            .addCase(getAllType.fulfilled,(state, action) => {
+                state.allType = action.payload
+            })
 });
 
 const {reducer:pokemonReducer} = pokemonSlice;
@@ -62,7 +122,12 @@ const {reducer:pokemonReducer} = pokemonSlice;
 const pokemonActions={
     getAll,
     getOne,
-    getForms
+    getForms,
+    getSearchPokemon,
+    getAbility,
+    getType,
+    getAllType,
+    getAllAbility
 }
 
 export {
