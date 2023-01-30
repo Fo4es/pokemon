@@ -8,12 +8,18 @@ export default function Pokemon({pokemons}){
       const id = url.slice(34).replace("/","");
 
     return(
+        <div  className='pokemonsCard'>
         <Link to ={`/Pokemons/${name}`} state={pokemons}>
-        <div>
-            {name}
-            <img alt={`picture`} src={picture+id+`.png`}/>
+        <div className='pokemonCard'>
+            <div className='picture'>
+                <img alt={`picture`} src={picture+id+`.png`}/>
+            </div>
+            <div className='text'>
+                {name}
+            </div>
         </div>
         </Link>
+        </div>
     );
 }
 

@@ -2,7 +2,7 @@ import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {pokemonActions} from "../redux";
-import TypePokemon from "../components/TypePokemon";
+import TypePokemon from "../components/Type/TypePokemon";
 
 export default function TypeInfoPage(){
 

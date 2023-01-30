@@ -1,2 +1,62 @@
+.headers{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+body{
+    background: #efe7bb;
+}
+.pokemons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+
+}
+.pokemonsCard{
+    width: 165px;
+    height: 122px;
+    margin: 10px;
+    border: 2px solid #e07d0f;
+}
+.pokemonCard{
+    display: flex;
+    flex-direction: column;
+
+}
+.text{
+    text-align: center;
+}
+.picture{
+    display: flex;
+    justify-content: center;
+}
+button{
+    display: flex;
+    background-color: #e0b68c;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 14px;
+    padding: 5px;
+    width: 80px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    justify-content: center
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+.forms{
+    display: flex;
+    justify-content: center
+}
+
+
 
 

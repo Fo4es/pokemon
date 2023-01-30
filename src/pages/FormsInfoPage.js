@@ -19,11 +19,17 @@ export default function FormsInfoPage(){
 
     return(
         <div>
-            <img src={picture2+id+`.png`} alt="p"/>
-            <br/>
-            {`Is mega - ${is_mega}`}
-            <br/>
-            {`Is battle - ${is_battle_only}`}
+            <div className='picture'>
+                <img src={picture2+id+`.png`} alt="p"/>
+            </div>
+            <div className='text'>
+                {`Is mega - ${is_mega}`}
+            </div>
+            <div className='text'>
+               {`Is battle - ${is_battle_only}`}
+            </div>
+
+
         </div>
     );
 }

@@ -2,7 +2,7 @@ import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {pokemonActions} from "../redux";
-import AbilityPokemon from "../components/AbilityPokemon";
+import AbilityPokemon from "../components/Ability/AbilityPokemon";
 
 export default function AbilityInfoPage(){
 
